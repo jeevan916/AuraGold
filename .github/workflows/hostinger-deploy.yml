@@ -33,6 +33,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/ # Uploads only the compiled files
           server-dir: ./ # Drops files directly into the FTP root
-          protocol: ftps # Use FTPS for Hostinger
+          protocol: ftp # Try explicitly setting protocol
           port: 21
           timeout: 600000 # Increase timeout to prevent control socket drops
