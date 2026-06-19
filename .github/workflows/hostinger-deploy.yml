@@ -31,6 +31,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/ # Uploads only the compiled files
-          server-dir: /public_html/ # Or your specific domain directory
+          server-dir: ./ # Drops files directly into the FTP root
           protocol: ftp # Try explicitly setting protocol
           port: 21
