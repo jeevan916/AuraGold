@@ -4,12 +4,41 @@ import Footer from '../components/Footer';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry. We will get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    const endpoint = (import.meta as any).env.VITE_FORMSPREE_ENDPOINT;
+
+    if (!endpoint) {
+      alert("Form submission is currently in demo mode. To receive emails, configure VITE_FORMSPREE_ENDPOINT in your environment secrets.");
+      console.log('Form data that would have been sent:', formData);
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert('Thank you for your inquiry. We will get back to you soon.');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert('There was a problem submitting your form. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('There was an error submitting the form.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -27,8 +56,8 @@ export default function Contact() {
           </div>
           <input type="text" placeholder="Subject" className="w-full bg-transparent border-b border-[#1a1a1a]/30 py-3 focus:outline-none focus:border-[#1a1a1a]" value={formData.subject} onChange={(e) => setFormData({...formData, subject: e.target.value})} required />
           <textarea placeholder="Message" className="w-full bg-transparent border-b border-[#1a1a1a]/30 py-3 focus:outline-none focus:border-[#1a1a1a] h-32" value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} required />
-          <button type="submit" className="bg-[#1a1a1a] text-[#f5f2ed] rounded-full px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#1a1a1a]/80 transition">
-            Send Message
+          <button type="submit" disabled={isSubmitting} className="bg-[#1a1a1a] text-[#f5f2ed] rounded-full px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#1a1a1a]/80 transition disabled:opacity-50">
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       </section>
