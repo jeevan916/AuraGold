@@ -8,13 +8,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const endpoint = (import.meta as any).env.VITE_FORMSPREE_ENDPOINT;
-
-    if (!endpoint) {
-      alert("Form submission is currently in demo mode. To receive emails, configure VITE_FORMSPREE_ENDPOINT in your environment secrets.");
-      console.log('Form data that would have been sent:', formData);
-      return;
-    }
+    const endpoint = '/api/contact.php';
 
     setIsSubmitting(true);
     try {
