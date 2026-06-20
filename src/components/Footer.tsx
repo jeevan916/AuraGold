@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="p-16 text-center border-t border-[#1a1a1a]/10">
+    <footer className="p-16 text-center border-t border-[#1a1a1a]/10 mt-auto flex flex-col items-center">
+      <Logo className="w-16 h-16 mb-8 opacity-80" />
       <h2 className="font-serif text-4xl font-light mb-8">Your Future, Solid as Gold.</h2>
       <Link to="/contact" className="inline-block bg-[#1a1a1a] text-[#f5f2ed] rounded-full px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#1a1a1a]/80 transition mb-16">
         Get Started Today

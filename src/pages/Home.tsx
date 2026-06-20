@@ -2,6 +2,7 @@ import { MessageSquare, PiggyBank, Brain, Bell, ShieldCheck } from 'lucide-react
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Logo from '../components/Logo';
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
           <div className="w-[320px] max-w-full h-[580px] bg-white rounded-[2.5rem] shadow-2xl border-[8px] border-[#1a1a1a] flex flex-col relative text-sm overflow-hidden transform hover:scale-105 transition duration-500">
             {/* Header */}
             <div className="bg-[#075E54] text-white p-4 flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-serif text-xl border border-[#d4af37]">A</div>
+              <Logo className="w-10 h-10 border border-[#d4af37]/30 rounded-xl" />
               <div className="leading-tight">
                 <div className="font-medium">AuraGold Elite</div>
                 <div className="text-[10px] opacity-80">Verified Business ✓</div>
