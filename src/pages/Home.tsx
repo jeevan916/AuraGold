@@ -50,7 +50,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col gap-2 w-[90%] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                <button className="bg-white text-[#00a884] p-2 rounded-xl shadow-sm text-center font-medium border border-[#00a884]/20 hover:bg-[#00a884]/5 transition active:scale-95">Pay Now (UPI/Cards)</button>
+                <Link to="/contact" className="bg-white block text-center text-[#00a884] p-2 rounded-xl shadow-sm font-medium border border-[#00a884]/20 hover:bg-[#00a884]/5 transition active:scale-95">Pay Now (UPI/Cards)</Link>
               </div>
 
               <div className="bg-[#d9fdd3] p-3 pb-5 rounded-xl rounded-tr-none max-w-[85%] self-end shadow-sm text-[#1a1a1a] relative mt-3 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
