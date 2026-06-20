@@ -1,4 +1,5 @@
 import { MessageSquare, PiggyBank, Brain, Bell, ShieldCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -16,17 +17,17 @@ export default function Home() {
             AuraGold Elite gives retailers the freedom of autonomous gold purchase plans and gives customers an easy way to manage purchases with multiple payment modes and rate protection—no new apps required.
           </p>
           <div className="flex gap-4">
-            <button className="bg-[#1a1a1a] text-[#f5f2ed] rounded-full px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#1a1a1a]/80 transition">
+            <Link to="/contact" className="inline-block bg-[#1a1a1a] text-[#f5f2ed] rounded-full px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#1a1a1a]/80 transition hover:-translate-y-1">
               For Customers
-            </button>
-            <button className="border border-[#1a1a1a] rounded-full px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#1a1a1a] hover:text-[#f5f2ed] transition">
+            </Link>
+            <Link to="/contact" className="inline-block border border-[#1a1a1a] rounded-full px-8 py-4 text-sm uppercase tracking-widest hover:bg-[#1a1a1a] hover:text-[#f5f2ed] transition hover:-translate-y-1">
               For Retailers
-            </button>
+            </Link>
           </div>
         </div>
         <div className="md:w-1/2 mt-16 md:mt-0 aspect-square bg-[#d4af37]/10 rounded-3xl overflow-hidden flex items-center justify-center p-4">
           {/* WhatsApp UI Mockup */}
-          <div className="w-[320px] max-w-full h-[580px] bg-white rounded-[2.5rem] shadow-2xl border-[8px] border-[#1a1a1a] flex flex-col relative text-sm overflow-hidden">
+          <div className="w-[320px] max-w-full h-[580px] bg-white rounded-[2.5rem] shadow-2xl border-[8px] border-[#1a1a1a] flex flex-col relative text-sm overflow-hidden transform hover:scale-105 transition duration-500">
             {/* Header */}
             <div className="bg-[#075E54] text-white p-4 flex items-center gap-3">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-serif text-xl border border-[#d4af37]">A</div>
@@ -39,7 +40,7 @@ export default function Home() {
             <div className="flex-1 bg-[#efeae2] p-4 flex flex-col gap-3 overflow-hidden">
               <div className="mx-auto bg-[#e1f3fb] text-[#1a1a1a]/60 text-[10px] px-3 py-1 rounded-lg shadow-sm mb-2">Today</div>
               
-              <div className="bg-white p-3 pb-5 rounded-xl rounded-tl-none w-[90%] shadow-sm text-[#1a1a1a] relative">
+              <div className="bg-white p-3 pb-5 rounded-xl rounded-tl-none w-[90%] shadow-sm text-[#1a1a1a] relative animate-fade-in-up">
                 Hello! 🌟 Your automated 22K Gold accumulation plan reminder. 
                 <br/><br/>
                 <strong>Rate Protection:</strong> Locked at current low 🔒
@@ -48,16 +49,16 @@ export default function Home() {
                 <span className="text-[9px] text-gray-400 absolute bottom-1 right-2">10:00 AM</span>
               </div>
 
-              <div className="flex flex-col gap-2 w-[90%]">
-                <button className="bg-white text-[#00a884] p-2 rounded-xl shadow-sm text-center font-medium border border-[#00a884]/20 hover:bg-[#00a884]/5 transition">Pay Now (UPI/Cards)</button>
+              <div className="flex flex-col gap-2 w-[90%] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                <button className="bg-white text-[#00a884] p-2 rounded-xl shadow-sm text-center font-medium border border-[#00a884]/20 hover:bg-[#00a884]/5 transition active:scale-95">Pay Now (UPI/Cards)</button>
               </div>
 
-              <div className="bg-[#d9fdd3] p-3 pb-5 rounded-xl rounded-tr-none max-w-[85%] self-end shadow-sm text-[#1a1a1a] relative mt-3">
+              <div className="bg-[#d9fdd3] p-3 pb-5 rounded-xl rounded-tr-none max-w-[85%] self-end shadow-sm text-[#1a1a1a] relative mt-3 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 Payment done via UPI ✅
                 <span className="text-[9px] text-gray-400 absolute bottom-1 right-2">10:15 AM</span>
               </div>
 
-              <div className="bg-white p-3 pb-5 rounded-xl rounded-tl-none w-[90%] shadow-sm text-[#1a1a1a] relative mt-1">
+              <div className="bg-white p-3 pb-5 rounded-xl rounded-tl-none w-[90%] shadow-sm text-[#1a1a1a] relative mt-1 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                 Payment Received! 🎉 
                 <br/>Added 1.53 gms of 22K Gold your secure vault.
                 <span className="text-[9px] text-gray-400 absolute bottom-1 right-2">10:16 AM</span>
